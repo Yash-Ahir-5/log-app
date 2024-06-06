@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
 const sequelize = require('./utils/db');
+const cors = require('cors');
 
 const app = express();
-// app.use(express)
+app.use(express.json());
+app.use(cors());
 
 app.use('/', require('./routes'));
 

@@ -1,8 +1,8 @@
 const express = require('express');
-const { welcome } = require('../controllers/productController');
+const { sendFolders, uploadDoc } = require('../controllers/productController');
 const router = express();
 
-router.get('/', welcome);
-
+router.get('/', sendFolders);
+router.post('/file', uploadDoc);
 
 module.exports = router

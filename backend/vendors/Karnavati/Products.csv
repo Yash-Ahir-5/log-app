@@ -1,0 +1,201 @@
+id,Product Name,Price (INR),Quantity
+1,Masoor Dal,?45.99,50
+2,Basmati Rice,?99.49,100
+3,Turmeric Powder,?25.79,30
+4,Mustard Oil,?85.99,75
+5,Green Tea,?120.49,40
+6,Paneer,?79.99,60
+7,Saffron,?299.99,20
+8,Jaggery,?49.99,15
+9,Cardamom,?399.99,10
+10,Ghee,?249.99,5
+11,Chana Dal,?55.99,80
+12,Sona Masoori Rice,?69.99,70
+13,Cumin Seeds,?35.99,45
+14,Coconut Oil,?129.99,35
+15,Green Chillies,?15.99,25
+16,Alphonso Mangoes,?199.99,18
+17,Tamarind,?45.99,20
+18,Coriander Powder,?29.99,120
+19,Red Chilli Powder,?39.99,55
+20,Sambar Powder,?49.99,40
+21,Rice Flour,?25.99,35
+22,Wheat Flour,?22.99,50
+23,Moong Dal,?59.99,65
+24,Black Pepper,?89.99,30
+25,Cashew Nuts,?349.99,25
+26,Raisins,?189.99,20
+27,Turmeric Roots,?19.99,40
+28,Curry Leaves,?12.99,80
+29,Asafoetida,?59.99,30
+30,Cinnamon Sticks,?45.99,65
+31,Maida,?35.99,90
+32,Besan,?29.99,85
+33,Cumin Powder,?39.99,60
+34,Mustard Seeds,?25.99,70
+35,Poppy Seeds,?65.99,45
+36,Fenugreek Seeds,?19.99,100
+37,Peanuts,?55.99,55
+38,Cloves,?179.99,40
+39,Bay Leaves,?25.99,80
+40,Ragi Flour,?49.99,35
+41,Bajra Flour,?45.99,60
+42,Rava,?39.99,75
+43,Sago,?29.99,90
+44,Black Gram,?69.99,25
+45,Cow Ghee,?299.99,15
+46,Desi Ghee,?249.99,20
+47,Mung Beans,?59.99,35
+48,Masala Papad,?49.99,40
+49,Jowar Flour,?55.99,30
+50,Urad Dal,?45.99,50
+51,Ajwain,?89.99,25
+52,Black Salt,?29.99,65
+53,Kala Namak,?39.99,45
+54,Chat Masala,?59.99,40
+55,Garam Masala,?49.99,50
+56,Amchur Powder,?35.99,60
+57,Tandoori Masala,?45.99,70
+58,Kasuri Methi,?25.99,80
+59,Poha,?15.99,90
+60,Red Lentils,?69.99,55
+61,Yellow Lentils,?55.99,65
+62,Masoor Dal,?45.99,70
+63,Chana Masala,?49.99,80
+64,Pav Bhaji Masala,?39.99,75
+65,Hing,?89.99,40
+66,White Pepper,?159.99,30
+67,Poppy Seeds,?65.99,45
+68,Star Anise,?69.99,35
+69,Dried Apricots,?149.99,20
+70,Dried Figs,?199.99,15
+71,Chia Seeds,?299.99,10
+72,Safflower Oil,?89.99,30
+73,Biryani Masala,?59.99,40
+74,Amla,?45.99,50
+75,Kokum,?49.99,60
+76,Jaggery Powder,?29.99,70
+77,Kaju Katli,?299.99,15
+78,Besan Laddu,?249.99,20
+79,Mysore Pak,?199.99,25
+80,Rasgulla,?149.99,30
+81,Gulab Jamun,?129.99,35
+82,Rasmalai,?199.99,20
+83,Jalebi,?99.99,40
+84,Kaju Barfi,?249.99,15
+85,Peda,?129.99,25
+86,Sandesh,?79.99,35
+87,Modak,?149.99,30
+88,Kachori,?45.99,50
+89,Dhokla,?55.99,60
+90,Samosa,?35.99,70
+91,Pakora,?25.99,80
+92,Aloo Tikki,?39.99,90
+93,Vada Pav,?49.99,100
+94,Idli,?19.99,120
+95,Dosa,?29.99,110
+96,Uttapam,?39.99,100
+97,Appam,?49.99,90
+98,Pani Puri,?25.99,80
+99,Bhel Puri,?35.99,70
+100,Sev Puri,?45.99,60
+101,Poha,?15.99,50
+102,Misal Pav,?55.99,40
+103,Pav Bhaji,?49.99,45
+104,Paneer Tikka,?89.99,35
+105,Tandoori Chicken,?199.99,30
+106,Butter Chicken,?179.99,25
+107,Rogan Josh,?129.99,20
+108,Biryani,?99.99,15
+109,Palak Paneer,?89.99,10
+110,Chole Bhature,?69.99,20
+111,Rajma Chawal,?79.99,25
+112,Aloo Paratha,?49.99,30
+113,Methi Thepla,?39.99,35
+114,Dahi Vada,?59.99,40
+115,Aloo Chaat,?45.99,45
+116,Pav Bhaji,?49.99,50
+117,Masala Dosa,?55.99,55
+118,Chicken Biryani,?199.99,60
+119,Mutton Curry,?249.99,65
+120,Fish Fry,?149.99,70
+121,Prawn Curry,?189.99,75
+122,Veg Pulao,?99.99,80
+123,Chicken Curry,?159.99,85
+124,Paneer Butter Masala,?129.99,90
+125,Palak Chicken,?189.99,95
+126,Egg Curry,?79.99,100
+127,Matar Paneer,?89.99,105
+128,Chicken Tikka,?179.99,110
+129,Tandoori Roti,?19.99,120
+130,Naan,?29.99,130
+131,Garlic Naan,?35.99,140
+132,Kulcha,?25.99,150
+133,Lachha Paratha,?39.99,160
+134,Tandoori Roti,?19.99,170
+135,Butter Naan,?29.99,180
+136,Aloo Paratha,?35.99,190
+137,Plain Rice,?15.99,200
+138,Jeera Rice,?25.99,190
+139,Vegetable Pulao,?45.99,180
+140,Biryani Rice,?55.99,170
+141,Saffron Rice,?69.99,160
+142,Lemon Rice,?39.99,150
+143,Curd Rice,?29.99,140
+144,Coconut Rice,?35.99,130
+145,Tomato Rice,?45.99,120
+146,Spinach Rice,?39.99,110
+147,Peas Pulao,?49.99,100
+148,Tamarind Rice,?55.99,90
+149,Mushroom Pulao,?59.99,80
+150,Fried Rice,?65.99,70
+151,Masala Khichdi,?45.99,60
+152,Pongal,?35.99,50
+153,Bisibele Bath,?55.99,40
+154,Lemon Rice,?39.99,30
+155,Curd Rice,?29.99,20
+156,Vangi Bath,?45.99,10
+157,Tomato Rice,?49.99,5
+158,Pepper Rice,?55.99,8
+159,Paneer Pulao,?69.99,12
+160,Capsicum Rice,?59.99,15
+161,Chicken Biryani,?199.99,20
+162,Veg Pulao,?99.99,25
+163,Mutton Biryani,?249.99,30
+164,Egg Biryani,?149.99,35
+165,Fish Biryani,?189.99,40
+166,Prawn Biryani,?179.99,45
+167,Hyderabadi Biryani,?299.99,50
+168,Dum Biryani,?199.99,55
+169,Chicken Curry,?159.99,60
+170,Mutton Curry,?249.99,65
+171,Fish Curry,?189.99,70
+172,Prawn Curry,?219.99,75
+173,Egg Curry,?79.99,80
+174,Chicken Masala,?179.99,85
+175,Mutton Masala,?269.99,90
+176,Fish Masala,?209.99,95
+177,Paneer Masala,?139.99,100
+178,Aloo Gobi,?79.99,105
+179,Bhindi Masala,?49.99,110
+180,Baingan Bharta,?69.99,115
+181,Rajma Masala,?59.99,120
+182,Chole Masala,?55.99,125
+183,Dal Fry,?39.99,130
+184,Dal Tadka,?45.99,135
+185,Dal Makhani,?49.99,140
+186,Malai Kofta,?119.99,145
+187,Palak Paneer,?99.99,150
+188,Shahi Paneer,?129.99,155
+189,Kadai Paneer,?109.99,160
+190,Butter Paneer,?139.99,165
+191,Paneer Bhurji,?89.99,170
+192,Veg Korma,?79.99,175
+193,Veg Jalfrezi,?69.99,180
+194,Aloo Palak,?49.99,185
+195,Dum Aloo,?59.99,190
+196,Baingan Bharta,?65.99,195
+197,Veg Kurma,?55.99,200
+198,Veg Handi,?69.99,205
+199,Paneer Tikka Masala,?129.99,210
+200,Matar Paneer,?89.99,215
