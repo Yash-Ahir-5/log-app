@@ -18,25 +18,29 @@ const product = sequelize.define('product', {
     quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    vendorName: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     tableName: 'product',
     timestamps: false
 });
 
-// Sync the table only if it doesn't exist
-(async () => {
-    try {
-        // const existingProductTable = false;
-        if (!existingProductTable) {
-            await product.sync();
-            console.log("Product table created successfully.");
-        } else {
-            console.log("Product table already exists.");
-        }
-    } catch (error) {
-        console.error("Error checking or creating Product table:", error);
-    }
-})();
+
+// (async () => {
+//     try {
+//         const existingProductTable = false;
+//         if (!existingProductTable) {
+//             await product.sync();
+//             console.log("Product table created successfully.");
+//         } else {
+//             console.log("Product table already exists.");
+//         }
+//     } catch (error) {
+//         console.error("Error checking or creating Product table:", error);
+//     }
+// })();
 
 module.exports = product;
