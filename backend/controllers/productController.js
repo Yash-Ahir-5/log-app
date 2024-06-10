@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
 const sequelize = require('../utils/db');
+const Product = require('../models/ProductModel');
 // const { getAllProducts } = require('../services/productServices');
 
 const sendFolders = (req, res) => {
@@ -103,6 +104,11 @@ const uploadDoc = async (req, res) => {
     return res.status(404).send('Folder not found.');
   }
 
+  // Set up SSE headers
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
   fs.readdir(folderPath, async (err, files) => {
     if (err) {
       console.error('Error reading folder:', err);
@@ -123,8 +129,8 @@ const uploadDoc = async (req, res) => {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const data = xlsx.utils.sheet_to_json(worksheet, { header: 1, range: 1 });
-        
-        await saveDataToDatabase(data, folderName); // Save data to database
+        console.log(data);
+        await saveDataToDatabase(data, folderName, res); 
         res.send('Excel file read successfully.');
       } catch (error) {
         console.error('Error reading Excel file:', error);
@@ -144,7 +150,7 @@ const uploadDoc = async (req, res) => {
           const cleanedRow = row.replace(/[?\r]/g, '');
           return cleanedRow.split(',');
         });
-
+        console.log(csvData);
         await saveDataToDatabase(csvData, folderName); // Save data to database
         res.send('CSV file read successfully.');
       });
@@ -152,22 +158,120 @@ const uploadDoc = async (req, res) => {
   });
 };
 
-async function saveDataToDatabase(data, vendorName) {
-  const values = data.map(row => `('${vendorName}', '${row.join("', '")}')`).join(',');
+// async function saveDataToDatabase(data, vendorName) {
+//   const values = data.map(row => `('${row[1]}', ${row[2]}, ${row[3]}, '${vendorName}')`).join(',');
 
-  const query = `
-    INSERT INTO product (productName, price, quantity, vendorName) 
-    VALUES ${values}
-  `;
+//   const query = `INSERT INTO product (productName, price, quantity, vendorName) VALUES ${values}`;
 
+//   try {
+//     await sequelize.query(query);
+//   } catch (error) {
+//     console.error('Error saving data to database:', error);
+//     throw new Error('Error saving data to database.');
+//   }
+// }
+
+// async function saveDataToDatabase(data, vendorName) {
+//   try {
+//     for (const row of data) {
+//       const [product, created] = await Product.findOrCreate({
+//         where: {
+//           productName: row[1],
+//           price: row[2],
+//           quantity: row[3],
+//           vendorName: vendorName
+//         },
+//         defaults: {
+//           productName: row[1],
+//           price: row[2],
+//           quantity: row[3],
+//           vendorName: vendorName
+//         }
+//       });
+      
+//       if (!created) {
+//         console.log(`Product '${row[0]}' already exists. Skipping insertion.`);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error saving data to database:', error);
+//     throw new Error('Error saving data to database.');
+//   }
+// }
+
+// async function saveDataToDatabase(data, vendorName) {
+//   try {
+//     for (const row of data) {
+//       const roundedPrice = Math.round(row[2]);
+
+//       const existingProduct = await Product.findOne({
+//         where: {
+//           productName: row[1],
+//           price: roundedPrice,
+//           quantity: row[3],
+//           vendorName: vendorName
+//         }
+//       });
+
+//       if (!existingProduct) {
+//         await Product.create({
+//           productName: row[1],
+//           price: roundedPrice, 
+//           quantity: row[3],
+//           vendorName: vendorName
+//         });
+//       } else {
+//         console.log(`Product '${row[0]}' already exists. Skipping insertion.`);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error saving data to database:', error);
+//     throw new Error('Error saving data to database.');
+//   }
+// }
+
+// Function to save data to the database and send SSE messages for logging
+
+async function saveDataToDatabase(data, vendorName, res) {
   try {
-    await sequelize.query(query);
+    for (const row of data) {
+      const roundedPrice = Math.round(row[2]); 
+      const existingProduct = await Product.findOne({
+        where: {
+          productName: row[1],
+          vendorName: vendorName
+        }
+      });
+
+      if (existingProduct) {
+        if (existingProduct.price !== roundedPrice || existingProduct.quantity !== row[3]) {
+          await existingProduct.update({
+            price: roundedPrice,
+            quantity: row[3]
+          });
+          res.write(`data: ${JSON.stringify({ message: "Updated", data: row })}\n\n`);
+          console.log(`Product id'${row[0]}' updated.`);
+        } else {
+          res.write(`data: ${JSON.stringify({ message: "Skipped", data: row })}\n\n`);
+          console.log(`Product id'${row[0]}' already exists with the same data. Skipping insertion.`);
+        }
+      } else {
+        await Product.create({
+          productName: row[1],
+          price: roundedPrice, 
+          quantity: row[3],
+          vendorName: vendorName
+        });
+        res.write(`data: ${JSON.stringify({ message: "Inserted", data: row })}\n\n`);
+        console.log(`Product id'${row[0]}' inserted.`);
+      }
+    }
+    res.end();
   } catch (error) {
     console.error('Error saving data to database:', error);
-    throw new Error('Error saving data to database.');
+    res.status(500).send('Error saving data to database.');
   }
 }
-
 
 
 module.exports = {

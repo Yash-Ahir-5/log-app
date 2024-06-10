@@ -2,7 +2,7 @@ const {Sequelize} = require('sequelize');
 
 const sequelize = new Sequelize('vendordata','root','',{
     host: "localhost",
-    logging: true,
+    logging: false,
     dialect: 'mysql'
 })
 
