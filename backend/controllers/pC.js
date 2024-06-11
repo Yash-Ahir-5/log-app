@@ -19,7 +19,7 @@ const sendFolders = (req, res) => {
 };
 
 const uploadDoc = async (req, res) => {
-  const folderName = req.body.folderName;
+  const folderName = req.params.folderName;
   const folderPath = path.join(__dirname, '..', 'vendors', folderName);
 
   if (!fs.existsSync(folderPath)) {

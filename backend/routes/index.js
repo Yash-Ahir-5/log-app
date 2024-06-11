@@ -5,6 +5,6 @@ const { sendFolders , uploadDoc} = require('../controllers/pC');
 const router = express();
 
 router.get('/', sendFolders);
-router.post('/file', uploadDoc);
+router.get('/file/:folderName', uploadDoc);
 
 module.exports = router
